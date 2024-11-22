@@ -1,4 +1,4 @@
-# Automated Data Extraction and Invoice Management
+# Swipe Card - Automated Data Extraction and Invoice Management
 
 This project is a React application that automates the extraction, processing, and management of invoice data from various file formats. The app organizes the extracted data into three main sections: Invoices, Products, and Customers. Changes are synchronized in real-time using Redux for consistent updates across tabs.
 
