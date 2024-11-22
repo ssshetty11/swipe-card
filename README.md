@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Automated Data Extraction and Invoice Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application that automates the extraction, processing, and management of invoice data from various file formats. The app organizes the extracted data into three main sections: Invoices, Products, and Customers. Changes are synchronized in real-time using Redux for consistent updates across tabs.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+1. **File Uploads**  
+   - Supports uploading different file types, including:
+     - **Excel files**: Contain transaction details such as serial number, net/total amount, and customer information.
+     - **PDF/Images**: Contain invoices with customer and item details, including totals, tax, and more.
+   
+2. **AI-Powered Data Extraction**  
+   - Implemented an AI-based solution to extract relevant data from all file types and organize it into the following tabs:
+     - **Invoices**: Serial Number, Customer Name, Product Name, Quantity, Tax, Total Amount, Date.
+     - **Products**: Product Name, Quantity, Unit Price, Tax, Price with Tax (optional Discount field).
+     - **Customers**: Customer Name, Phone Number, Total Purchase Amount (additional customer data optional).
 
-### `npm start`
+3. **Real-time Synchronization with Redux**  
+   - Uses Redux for centralized state management.
+   - Changes made in the Products or Customers tabs are reflected in real-time across all tabs, e.g., if the Product Name is updated in the Products tab, the corresponding entry in the Invoices tab will update automatically.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. **Validation and Error Handling**  
+   - Ensures data completeness and accuracy.
+   - Provides user-friendly feedback on unsupported file formats and extraction errors.
+   - Highlights missing fields and prompts the user to complete them.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. **Bonus Features**  
+   - Additional fields in any of the tabs are supported for added details.
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app is organized into three main sections:
 
-### `npm run build`
+- **Invoices Tab**  
+   Displays a table with the following columns:
+   - Serial Number
+   - Customer Name
+   - Product Name
+   - Quantity
+   - Tax
+   - Total Amount
+   - Date
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Products Tab**  
+   Displays a table with the following columns:
+   - Product Name
+   - Quantity
+   - Unit Price
+   - Tax
+   - Price with Tax
+   - Discount (optional)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Customers Tab**  
+   Displays a table with the following columns:
+   - Customer Name
+   - Phone Number
+   - Total Purchase Amount
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## AI Test Cases
 
-### `npm run eject`
+The application is tested on the following cases:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Invoice PDFs**
+2. **Invoice PDFs + Images**
+3. **Excel Files**
+4. **Excel Files (Multiple)**
+5. **All Types of Files (Mix of PDF, Image, Excel)**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The AI-powered extraction is designed to handle these cases and highlight missing information if it can't be extracted from the files.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Frontend**: React, Redux
+- **AI Integration**: Google Gemini API for document and vision processing
+- **File Uploads**: React Dropzone
+- **Backend (Optional)**: Any serverless solution like Firebase, AWS Lambda (if processing is done on the server-side)
+- **Deployment**: Vercel/Netlify for deployment
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Web Site: 
+https://simple-payment.netlify.app/
